@@ -4,9 +4,13 @@ class ProductosModel {
   int? canProducto;
   String? fechaCaducidad;
 
-  ProductosModel({this.idProducto, this.nomProducto, this.canProducto, this.fechaCaducidad});
-
-  factory ProductosModel.fromMap(Map<String, dynamic> producto){
+  ProductosModel({
+    this.idProducto,
+    this.nomProducto,
+    this.canProducto,
+    this.fechaCaducidad});
+  
+  factory ProductosModel.fromMap(Map<String,dynamic> producto){
     return ProductosModel(
       idProducto: producto['idProducto'],
       nomProducto: producto['nomProducto'],
@@ -14,4 +18,5 @@ class ProductosModel {
       fechaCaducidad: producto['fechaCaducidad']
     );
   }
+
 }

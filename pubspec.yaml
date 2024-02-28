@@ -43,6 +43,8 @@ dependencies:
   intl: ^0.19.0
   email_validator: ^2.1.17
   image_picker: ^1.0.7
+  smooth_page_indicator: ^1.0.0
+  lottie: ^1.2.1
 
 dev_dependencies:
   flutter_test:

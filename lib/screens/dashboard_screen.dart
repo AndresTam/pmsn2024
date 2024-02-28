@@ -1,3 +1,4 @@
+import 'package:app01/screens/login_screen.dart';
 import 'package:app01/settings/app_valuenotifier.dart';
 import 'package:day_night_switcher/day_night_switcher.dart';
 import 'package:flutter/material.dart';
@@ -39,7 +40,14 @@ class DashboardScreen extends StatelessWidget {
               trailing: Icon(Icons.chevron_right),
               onTap: (){
                 Navigator.pop(context);
-                Navigator.pop(context);
+                Navigator.push(
+                  context, 
+                  MaterialPageRoute(
+                    builder: (context){
+                      return const LoginScreen();
+                    },
+                  ),
+                );
               },
             ),
             DayNightSwitcher(
