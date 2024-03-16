@@ -45,6 +45,7 @@ dependencies:
   image_picker: ^1.0.7
   smooth_page_indicator: ^1.0.0
   lottie: ^1.2.1
+  dio: ^5.4.1
 
 dev_dependencies:
   flutter_test:

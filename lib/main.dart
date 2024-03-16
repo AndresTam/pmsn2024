@@ -6,7 +6,7 @@ import 'package:app01/screens/splash_screen.dart';
 import 'package:app01/settings/app_valuenotifier.dart';
 import 'package:app01/settings/theme.dart';
 import 'package:flutter/material.dart';
- 
+
 void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
