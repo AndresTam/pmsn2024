@@ -1,11 +1,12 @@
-import 'package:app01/screens/dashboard_screen.dart';
-import 'package:app01/screens/despensa_screen.dart';
-import 'package:app01/screens/onboarding_screen.dart';
+import 'package:flutter/material.dart';
+import 'package:app01/settings/theme.dart';
 import 'package:app01/screens/signup_screen.dart';
 import 'package:app01/screens/splash_screen.dart';
+import 'package:app01/screens/despensa_screen.dart';
+import 'package:app01/screens/dashboard_screen.dart';
+import 'package:app01/screens/onboarding_screen.dart';
 import 'package:app01/settings/app_valuenotifier.dart';
-import 'package:app01/settings/theme.dart';
-import 'package:flutter/material.dart';
+import 'package:app01/screens/popular_movies_screen.dart';
 
 void main() => runApp(const MyApp());
 
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
             "/despensa" : (BuildContext context) => const DespensaScreen(),
             "/signup" : (BuildContext context) => const SignupScreen(),
             "/onboarding" : (BuildContext context) => const OnBoardingScreen(),
+            "/movies" : (BuildContext context) => const PopularMoviesScreen(),
           },
         );
       }

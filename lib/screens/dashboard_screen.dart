@@ -33,6 +33,15 @@ class DashboardScreen extends StatelessWidget {
               trailing: Icon(Icons.chevron_right),
               onTap: () => Navigator.pushNamed(context, "/despensa"),
             ),
+            ListTile( //Se utiliza para manejar titulos y subtitulos en cada elemento, ademas de tener cosas a los lados
+              leading: Icon(Icons.movie),
+              title: Text("Moviles app"),
+              subtitle: Text("Consulta de peliculas particulares"),
+              trailing: Icon(Icons.chevron_right),
+              onTap: (){
+                Navigator.pushNamed(context, "/movies");
+              },
+            ),
             ListTile(
               leading: Icon(Icons.close),
               title: Text('Salir'),
