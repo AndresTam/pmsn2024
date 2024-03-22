@@ -1,3 +1,4 @@
+import 'package:app01/network/sesionId_tmdb.dart';
 import 'package:app01/screens/login_screen.dart';
 import 'package:app01/settings/app_valuenotifier.dart';
 import 'package:day_night_switcher/day_night_switcher.dart';
@@ -39,6 +40,7 @@ class DashboardScreen extends StatelessWidget {
               subtitle: Text("Consulta de peliculas particulares"),
               trailing: Icon(Icons.chevron_right),
               onTap: (){
+                SessionID().getSessionId();
                 Navigator.pushNamed(context, "/movies");
               },
             ),

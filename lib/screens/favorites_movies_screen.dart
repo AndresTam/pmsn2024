@@ -1,17 +1,16 @@
-import 'package:app01/screens/favorites_movies_screen.dart';
+import 'package:app01/model/session_tmdb_model.dart';
 import 'package:flutter/material.dart';
-import 'package:ionicons/ionicons.dart';
 import 'package:app01/model/popular_model.dart';
 import 'package:app01/network/api_popular.dart';
 
-class PopularMoviesScreen extends StatefulWidget {
-  const PopularMoviesScreen({super.key});
+class FavoritesMoviesScreen extends StatefulWidget {
+  const FavoritesMoviesScreen({super.key});
 
   @override
-  State<PopularMoviesScreen> createState() => _PopularMoviesScreenState();
+  State<FavoritesMoviesScreen> createState() => _FavoritesMoviesScreenState();
 }
 
-class _PopularMoviesScreenState extends State<PopularMoviesScreen> {
+class _FavoritesMoviesScreenState extends State<FavoritesMoviesScreen> {
   
   ApiPopular? apiPopular;
 
@@ -25,29 +24,14 @@ class _PopularMoviesScreenState extends State<PopularMoviesScreen> {
   
   @override
   Widget build(BuildContext context) {
+    String? sessionId = SessionManager().getSessionId();
+    
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Películas Populares'),
-        actions: [
-          IconButton(
-            icon: Icon(Ionicons.heart, color: Colors.red,),
-            onPressed: () {
-              Navigator.push(
-                context, 
-                PageRouteBuilder(
-                  pageBuilder: (context, animation, secondaryAnimation) => FavoritesMoviesScreen(),
-                  transitionsBuilder: (context, animation, secondaryAnimation, child) {
-                    return FadeTransition(opacity: animation, child: child);
-                  },
-                  transitionDuration: Duration(milliseconds: 500), // Ajusta la duración de la transición
-                ),
-              );
-            },
-          ),
-        ],
+        title: const Text('Películas Favoritas'),
       ),
       body: FutureBuilder(
-        future: apiPopular!.getPopularMovie(),
+        future: apiPopular!.getFavoriteMovies(sessionId!),
         builder: (context,AsyncSnapshot<List<PopularModel>?> snapshot){ //El snapshot trae cada elemento del arreglo (Es una lista del popular model)
           if (snapshot.hasData) {
             return GridView.builder(//Se puede poner un .builder a un contenedor cuando no se cauntos elementos hay
@@ -67,7 +51,7 @@ class _PopularMoviesScreenState extends State<PopularMoviesScreen> {
                       'popularMovies' : snapshot.data![index],
                       'trailers' : trailers,
                       'actors' : actors,
-                      'favorites' : false,
+                      'favorites' : true,
                     });
                   },
                   child: ClipRRect(
