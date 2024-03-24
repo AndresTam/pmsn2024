@@ -1,5 +1,4 @@
 //import 'dart:convert';
-import 'dart:ffi';
 import 'package:app01/model/actors_model.dart';
 import 'package:dio/dio.dart';
 import 'package:app01/model/popular_model.dart';

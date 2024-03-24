@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:ffi';
 import 'package:app01/model/session_tmdb_model.dart';
 import 'package:http/http.dart' as http;
 

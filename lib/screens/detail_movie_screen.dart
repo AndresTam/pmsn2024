@@ -46,7 +46,7 @@ class _DetailMovieScreenState extends State<DetailMovieScreen> {
     String? sessionId = SessionManager().getSessionId();
 
     if(trailers.isNotEmpty){
-      for(var trailer in trailers!) {
+      for(var trailer in trailers) {
         if(trailer.type == "Trailer" && trailer.name.contains("Tráiler Oficial")){
           trailerKey = trailer.key;
           break;
@@ -72,10 +72,9 @@ class _DetailMovieScreenState extends State<DetailMovieScreen> {
           ),
         ),
         child: BackdropFilter(
-          filter: ImageFilter.blur(sigmaX: 3.0, sigmaY: 3.0), // Ajusta los valores según tu preferencia
+          filter: ImageFilter.blur(sigmaX: 3.0, sigmaY: 3.0), 
           child: Container(
             color: Colors.black.withOpacity(0.3), // Color de fondo con opacidad
-            // Aquí puedes agregar otros widgets como texto, botones, etc.
             child: Center(
               child: ListView(
                 children: [
@@ -95,9 +94,7 @@ class _DetailMovieScreenState extends State<DetailMovieScreen> {
                           builder: (context, player){
                               return Column(
                                   children: [
-                                      // some widgets
                                       player,
-                                      //some other widgets
                                   ],
                               );
                             }
@@ -128,9 +125,10 @@ class _DetailMovieScreenState extends State<DetailMovieScreen> {
                           onTap: () {
                             setState(() {
                               iconColor = iconColor == Colors.white ? Colors.red : Colors.white;
-                              favorites ? print('true') : print('false');
                             });
-                            favorites ? ApiPopular().removeFromFavorites(popularModel.id!, sessionId!) : ApiPopular().addToFavorites(popularModel.id!, sessionId!);
+                            favorites
+                              ? ApiPopular().removeFromFavorites(popularModel.id!, sessionId!)
+                              : ApiPopular().addToFavorites(popularModel.id!, sessionId!);
                             // Mostrar un SnackBar
                             final snackBar = SnackBar(
                               content: Text(
@@ -142,10 +140,10 @@ class _DetailMovieScreenState extends State<DetailMovieScreen> {
                             ScaffoldMessenger.of(context).showSnackBar(snackBar);
                           },
                           child: Icon(
-                                Ionicons.heart,
-                                color: _getIconColor(favorites),
-                                size: 40.0,
-                              ),
+                            Ionicons.heart,
+                            color: _getIconColor(favorites),
+                            size: 40.0,
+                          ),
                         ),
                         Align(
                           alignment: Alignment.centerRight,
@@ -244,7 +242,9 @@ class _DetailMovieScreenState extends State<DetailMovieScreen> {
                                 ClipRRect(
                                   borderRadius: BorderRadius.circular(8), // Opcional: puedes ajustar el radio de las esquinas si lo deseas
                                   child: Image.network(
-                                    actor.profilePath.isNotEmpty ? '$baseUrl${actor.profilePath}' : "https://i.pinimg.com/236x/70/85/54/7085548f3d0372a08aea0291ddcee895.jpg", // URL de la imagen del actor
+                                    actor.profilePath.isNotEmpty 
+                                      ? '$baseUrl${actor.profilePath}'
+                                      : "https://i.pinimg.com/236x/70/85/54/7085548f3d0372a08aea0291ddcee895.jpg", //URL generica
                                     width: 100, // Ancho deseado de la imagen
                                     height: 120, // Altura deseada de la imagen
                                     fit: BoxFit.cover, // Ajusta la imagen para que cubra todo el espacio disponible

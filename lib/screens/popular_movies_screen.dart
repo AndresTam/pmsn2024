@@ -30,7 +30,7 @@ class _PopularMoviesScreenState extends State<PopularMoviesScreen> {
         title: const Text('Películas Populares'),
         actions: [
           IconButton(
-            icon: Icon(Ionicons.heart, color: Colors.red,),
+            icon: const Icon(Ionicons.heart, color: Colors.red,),
             onPressed: () {
               Navigator.push(
                 context, 
@@ -39,7 +39,7 @@ class _PopularMoviesScreenState extends State<PopularMoviesScreen> {
                   transitionsBuilder: (context, animation, secondaryAnimation, child) {
                     return FadeTransition(opacity: animation, child: child);
                   },
-                  transitionDuration: Duration(milliseconds: 500), // Ajusta la duración de la transición
+                  transitionDuration: const Duration(milliseconds: 500), // Ajusta la duración de la transición
                 ),
               );
             },
